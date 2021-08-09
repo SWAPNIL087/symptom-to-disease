@@ -122,15 +122,16 @@ class DiseasePrediction:
         from ibm_watson_machine_learning import APIClient
         import json
         import numpy as np
+        import safe
         val_credentials = {
-            "apikey":"5MEb0UfQQCFxJRe2BLBu_WtbHVnfpwjtxqnaoNSBRodx",
-            "url":"https://eu-gb.ml.cloud.ibm.com"
+            "apikey":safe.apikey,
+            "url":safe.url
         }
 
         vml_client = APIClient(val_credentials)
         vml_client.spaces.list()
 
-        space_id = '512482a2-a31b-4bc6-89d5-8ee939b4c16f'
+        space_id = safe.space_id
         vml_client.set.default_space(space_id)
         MODEL_NAME = 'resource'
         DEPLOYMENT_NAME = 'mlcode'
